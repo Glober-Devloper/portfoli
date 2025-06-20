@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Roshan Portfolio</title>
+    <meta name="description" content="A 3D interactive Roshan portfolio showcasing design and development skills" />
+    <meta name="author" content="Roshan Developer" />
+
+    <meta property="og:title" content="3D Roshan Portfolio" />
+    <meta property="og:description" content="A 3D interactive Roshan portfolio showcasing design and development skills" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://roshan.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Roshan_dev" />
+    <meta name="twitter:image" content="https://roshan.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/roshan-uploads/45b85894-f8dc-40f3-aa6c-600a8306e7ff.png" type="image/png">
+    
+    <!-- Google Fonts - Added Arial and other reliable fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700&family=Arial:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Preloader styles to prevent FOUC */
+      body {
+        margin: 0;
+        background-color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      /* Ensure all headings are visible with fallback fonts */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+      }
+      
+      /* Hide the roshan badge - enhanced version */
+      .gpte-badge, 
+      [class*="roshan"], 
+      [class*="gpt-badge"],
+      [class*="love-badge"],
+      [class*="edit-with"],
+      [class^="love"],
+      [class*="badge"],
+      [id*="roshan"],
+      [id*="badge"],
+      [data-roshan],
+      div[style*="position: fixed"][style*="bottom"],
+      div[style*="position:fixed"][style*="bottom"],
+      div[style*="z-index: 999"],
+      div[style*="z-index:999"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        max-height: 0 !important;
+        max-width: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        z-index: -9999 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

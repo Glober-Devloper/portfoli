@@ -1,0 +1,243 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+  }
+  
+  /* Ensure headings are always visible */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif !important;
+    color: #ffffff !important;
+  }
+  
+  /* Fix button colors on mobile - Enhanced with more specific targeting */
+  button, 
+  a[class*="bg-primary"],
+  .bg-primary,
+  [class*="bg-primary"] {
+    background-color: #9b87f5 !important;
+    color: #ffffff !important;
+  }
+  
+  /* Mobile-specific button fixes */
+  @media (max-width: 768px) {
+    button,
+    a[href="#about"],
+    .bg-primary,
+    [class*="bg-primary"],
+    a[class*="bg-primary"] {
+      background-color: #9b87f5 !important;
+      color: #ffffff !important;
+      border: none !important;
+    }
+    
+    /* Specifically target the CTA button */
+    a[href="#about"] {
+      background-color: #9b87f5 !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+  }
+  
+  /* Additional specificity for all button variants */
+  button[class*="bg-primary"],
+  a[class*="bg-primary"],
+  .bg-primary * {
+    color: #ffffff !important;
+  }
+  
+  /* Enhanced button animations */
+  button, a[role="button"] {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Ripple effect on click */
+  button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 0;
+  }
+  
+  button:active::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Ensure button content stays above ripple effect */
+  button > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Pulse animation for primary buttons */
+  button.animate-pulse-primary {
+    animation: pulse-primary 2s infinite;
+  }
+  
+  @keyframes pulse-primary {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(155, 135, 245, 0);
+    }
+  }
+  
+  /* Glow effect for special buttons */
+  .button-glow {
+    box-shadow: 0 0 20px rgba(155, 135, 245, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .button-glow:hover {
+    box-shadow: 0 0 30px rgba(155, 135, 245, 0.6);
+  }
+  
+  /* Hide roshan badge - enhanced version */
+  .gpte-badge, 
+  [class*="roshan"], 
+  [class*="badge"],
+  [class*="gpt-badge"], 
+  [class*="love-badge"],
+  [class*="edit-with"],
+  [class^="love"],
+  [id*="roshan"],
+  [id*="badge"],
+  [data-roshan],
+  div[style*="position: fixed"][style*="bottom"],
+  div[style*="position:fixed"][style*="bottom"],
+  div[style*="z-index: 999"],
+  div[style*="z-index:999"] {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    max-height: 0 !important;
+    max-width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    z-index: -9999 !important;
+  }
+  
+  /* Ensure numbers are visible */
+  .text-white, .text-primary, [class*="text-"] {
+    color: #ffffff !important;
+  }
+  
+  /* Make sure gradients display properly */
+  .bg-gradient-to-r.bg-clip-text.text-transparent {
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+  }
+}
